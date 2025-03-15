@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-{% load static %}
-{% load tailwind_cli %}
+{% load static %} {% load tailwind_cli %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    {% tailwind_css %}
-    <title>
-        {% block title %}
-        Todo bear
-        {% endblock %}
-    </title>
-</head>
-<body class = " bg-darkchoco text-lightchoco  ">
-    <nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    {% tailwind_css %}
+    <title>{% block title %} Todo bear {% endblock %}</title>
+  </head>
+  <body class="bg-darkchoco text-lightchoco">
+    <nav class="flex gap-4 mx-auto items-center justify-center">
+      <ul>
+        {% comment %}
+        <li><a href="/">Home</a></li>
+        {% endcomment %}
+      </ul>
     </nav>
     <main>
-        {% block content %}
-            <p>Loading ...</p>
-        {% endblock %}
+      {% block content %}
+      <p>Loading ...</p>
+      {% endblock %}
     </main>
-</body>
+  </body>
 </html>
