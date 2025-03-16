@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>  {% load tailwind_cli %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     {% tailwind_css %}
+    <title>Document</title>
+</head>
+<body class="bg-darkchoco">
+    <nav class="flex gap-4 mx-auto items-center justify-center text-lightchoco">
+      <ul>
+        <li>
+          <a href="/">home</a>
+         </li>
+         <li>
+          <a href="{% url 'create_path' %}">Create a todo</a>
+          
+         </li>
+         <li><a href="{% url 'todos_list' %}">view your todos</a></li>
+      </ul> 
+    </nav>
+  
+            <div class="text-white">
+                <p>{{ todo.id }}</p>
+                <p>{{ todo.title }}</p>
+                <p> {{todo.description}} </p>
+                <p>{{ todo.creation_date }} </p>
+                {% if todo.creation_date.time == todo.updated_date.time %}
+                    <p>Has never been updated</p>
+                    {% else %}
+                    <p>updated on {{ todo.updated_date.date}} at {{ todo.updated_date.time }}</p>
+                    {% endif %}
+        
+                <a href="{% url 'update_path' todo.id %}"  class="bg-blue-500 px-8 ">Update</a>
+            </div>
+       
+
+</body>
+</html>

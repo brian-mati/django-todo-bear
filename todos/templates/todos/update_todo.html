@@ -4,17 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% tailwind_css %}
-    <title>Create page</title>
+    <title>update</title>
 </head>
 <body>
-    <h1>Create a todo below</h1>
+    <h1>update below</h1>
+    <nav class="flex gap-4 mx-auto items-center justify-center text-lightchoco">
+      <ul>
+        <li>
+          <a href="/">home</a>
+         </li>
+         <li>
+          <a href="{% url 'create_path' %}">Create a todo</a>
+          
+         </li>
+         <li><a href="{% url 'todos_list' %}">view your todos</a></li>
+      </ul> 
+    </nav>
 
     <form  method="post" class="mx-auto flex flex-col gap-4 max-w-xl w-full">
         {% csrf_token %} 
         {% comment %} {{ form }}
          {% endcomment %}
       
-        <label for="{{ form.title.id_for_label }}" class="block text-sm font-medium text-gray-700 ">
+        <label for="{{ form.title.id_for_label }}" class="block text-sm font-medium text-gray-700">
             Title
        
         <input type="text" name="{{ form.title.name }}" id="{{ form.title.id_for_label }}" 
@@ -34,6 +46,7 @@
     <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
         Submit
     </button>
+        
     </form>
 </body>
 </html>

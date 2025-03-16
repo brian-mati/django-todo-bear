@@ -11,10 +11,15 @@
   <body class="bg-darkchoco text-lightchoco">
     <nav class="flex gap-4 mx-auto items-center justify-center">
       <ul>
-        {% comment %}
-        <li><a href="/">Home</a></li>
-        {% endcomment %}
-      </ul>
+        <li>
+          <a href="/">home</a>
+         </li>
+         <li>
+          <a href="{% url 'create_path' %}">Create a todo</a>
+          
+         </li>
+         <li><a href="{% url 'todos_list' %}">view your todos</a></li>
+      </ul> 
     </nav>
     <main>
       {% block content %}
